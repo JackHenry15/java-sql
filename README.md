@@ -180,7 +180,10 @@ ORDER BY count DESC
   </details>
 
 ```SQL
-
+SELECT customers.city, count(*)
+FROM orders
+INNER JOIN customers ON orders.ship_city=customers.city
+GROUP BY customers.city
 ```
 
 ## Data Normalization
@@ -200,53 +203,53 @@ Below are some empty tables to be used to normalize the database
 * Not all of the cells will contain data in the final solution
 * Feel free to edit these tables as necessary
 
-Table Name:
+Table Name:Person Table
 
-|            |            |            |            |            |            |            |            |            |
+| Person ID  |Person Name |            |            |            |            |            |            |            |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
+|     1      |   Jane     |            |            |            |            |            |            |            |
+|     2      |   Bob      |            |            |            |            |            |            |            |
+|     3      |   Sam      |            |            |            |            |            |            |            |
 |            |            |            |            |            |            |            |            |            |
 |            |            |            |            |            |            |            |            |            |
 |            |            |            |            |            |            |            |            |            |
 |            |            |            |            |            |            |            |            |            |
 
-Table Name:
+Table Name: Person Pet Table
 
-|            |            |            |            |            |            |            |            |            |
+|  Pet ID    | Person ID  |            |            |            |            |            |            |            |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
+|     1      |     1      |            |            |            |            |            |            |            |
+|     2      |     1      |            |            |            |            |            |            |            |
+|     3      |     1      |            |            |            |            |            |            |            |
+|     4      |     2      |            |            |            |            |            |            |            |
+|     5      |     3      |            |            |            |            |            |            |            |
+|     6      |     3      |            |            |            |            |            |            |            |
+|     7      |     3      |            |            |            |            |            |            |            |
 
-Table Name:
+Table Name: Property Table
 
-|            |            |            |            |            |            |            |            |            |
+| Person ID  |Fenced Yard |City Dweller|            |            |            |            |            |            |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
+|     1      |    no      |    yes     |            |            |            |            |            |            |
+|     2      |    no      |    no      |            |            |            |            |            |            |
+|     3      |   yes      |    no      |            |            |            |            |            |            |
 |            |            |            |            |            |            |            |            |            |
 |            |            |            |            |            |            |            |            |            |
 |            |            |            |            |            |            |            |            |            |
 |            |            |            |            |            |            |            |            |            |
 
-Table Name:
+Table Name: Pet Table
 
-|            |            |            |            |            |            |            |            |            |
+|  Pet ID    |  Pet Name  |  Pet Type  |            |            |            |            |            |            |
 |------------|------------|------------|------------|------------|------------|------------|------------|------------|
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
-|            |            |            |            |            |            |            |            |            |
+|     1      |   Ellie    |    Dog     |            |            |            |            |            |            |
+|     2      |   Tiger    |    Cat     |            |            |            |            |            |            |
+|     3      |   Toby     |    Turtle  |            |            |            |            |            |            |
+|     4      |   Joe      |    Horse   |            |            |            |            |            |            |
+|     5      |   Ginger   |    Dog     |            |            |            |            |            |            |
+|     6      | Miss Kitty |    Cat     |            |            |            |            |            |            |
+|     7      |   Bubble   |    Fish    |            |            |            |            |            |            |
 
 ---
 
